@@ -1,0 +1,120 @@
+/* Reset cơ bản */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* HEADER */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Menu */
+.menu-container { position: relative; display: inline-block; }
+.menu-icon { font-size: 24px; cursor: pointer; color: #444; }
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    padding: 10px 0;
+}
+.menu-container:hover .dropdown-menu { display: block; }
+.dropdown-menu li { list-style: none; position: relative; }
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.dropdown-menu li a:hover {
+    background: #f8f8f8;
+    color: #d32f2f;
+}
+
+/* Submenu cho mục Sản phẩm */
+.dropdown-menu .submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: #fff;
+    min-width: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+.dropdown-menu li.has-submenu:hover > .submenu {
+    display: block;
+}
+
+/* Logo */
+.logo-container h1 { font-size: 36px; color: #777; }
+.logo-container p { font-size: 13px; color: #888; margin-top: 5px; }
+
+/* Layout */
+.layout { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+.title-category { font-size: 22px; margin-bottom: 30px; color: #333; font-weight: 600; }
+
+/* Grid sản phẩm */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+.product-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    transition: 0.3s;
+}
+.product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.product-card img { max-width: 100%; height: auto; margin-bottom: 15px; }
+.product-card h3 { font-size: 15px; margin: 10px 0; line-height: 1.4; color: #333; }
+.price { color: #d32f2f; font-weight: bold; font-size: 17px; }
+.old-price { text-decoration: line-through; color: #bbb; font-size: 13px; margin-right: 5px; }
+.tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #d32f2f;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 11px;
+    border-radius: 2px;
+}
+
+/* Hover để hiện dropdown Bootstrap */
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Bootstrap dropdown hover đồng bộ */
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+    background: #f8f8f8;
+    color: #333;
+}
+.navbar .dropdown-menu .dropdown-item.active,
+.navbar .dropdown-menu .dropdown-item:active {
+    background: #e9ecef;
+    color: #111;
+}

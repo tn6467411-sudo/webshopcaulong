@@ -1,0 +1,137 @@
+/* Reset cơ bản */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  background: white;
+  color: gray;
+}
+
+/* Thanh menu */
+.navbar {
+  background: white;
+  border-bottom: 1px solid gray;
+}
+
+
+/* Logo/brand */
+.brand {
+  font-weight: 600;
+  color: gray;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Menu items */
+.menu {
+  list-style: none;
+  display: flex;                /* Nằm ngang mặc định */
+  align-items: center;          /* Căn giữa theo chiều dọc các mục */
+  gap: 24px;
+}
+
+.menu li {
+  position: relative;           /* Để submenu định vị theo mục cha */
+}
+
+.menu a {
+  text-decoration: none;
+  color: gray;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a:focus {
+  background: lightgray;
+  color: black;
+  outline: none;
+}
+
+/* Submenu cho mục Sản phẩm */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;   /* Thả xuống ngay dưới chữ Sản phẩm */
+  left: 0;
+  background: white;
+  border: 1px solid gray;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  list-style: none;
+  min-width: 180px;
+  padding: 8px 0;
+  z-index: 999;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 16px;
+  color: gray;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.submenu li a:hover {
+  background: lightgray;
+  color: black;
+}
+
+/* Hover để hiện submenu */
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+/* Hover để hiện dropdown Bootstrap */
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Responsive: < 500px chuyển thành cột dọc */
+@media (max-width: 500px) {
+  .navbar .container {
+    flex-direction: column;     /* Stack brand và menu */
+    align-items: stretch;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
+  .menu {
+    flex-direction: column;     /* Menu thành cột dọc */
+    align-items: stretch;       /* Mục kéo full chiều ngang */
+    gap: 8px;
+  }
+
+  .menu a {
+    padding: 12px 14px;
+  }
+
+  /* Submenu trong mobile: hiển thị như danh sách con */
+  .submenu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  .submenu li a {
+    padding: 12px 14px;
+  }
+}
+
+/* Bootstrap dropdown hover đồng bộ */
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+  background: #f8f8f8;
+  color: #333;
+}
+.navbar .dropdown-menu .dropdown-item.active,
+.navbar .dropdown-menu .dropdown-item:active {
+  background: #e9ecef;
+  color: #111;
+}
